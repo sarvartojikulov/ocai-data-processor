@@ -6,14 +6,14 @@ import validate from "./validation.js";
 
 export default function process_data(survey_data) {
     if (!validate(survey_data)) {
-        console.log("data is invalid");
+        log("data is invalid");
         return;
     }
     const averages = [];
 
     for (let i = 0; i < SURVEY.SURVEY_SECTIONS_AMOUNT; i++) {
         const sectionSums = [];
-        console.log("----");
+        log("----");
         for (let j = 0; j < survey_data.length; j++) {
             const user_answers = survey_data[j];
             const section = user_answers[i];
@@ -25,18 +25,18 @@ export default function process_data(survey_data) {
                     sectionSums[idx] = num;
                 }
             });
-            console.log(section);
+            log(section);
         }
 
         const average = sectionSums.map((item) => item / survey_data.length);
 
-        console.log("sum", sectionSums);
-        console.log("average", average);
-        console.log("----");
+        log("sum", sectionSums);
+        log("average", average);
+        log("----");
         averages.push(average);
     }
 
-    console.log(averages);
+    log(averages);
 
     const lastAverage = [];
     for (let i = 0; i < SURVEY.SURVEY_SECTION_QUESTIONS_AMOUNT; i++) {
@@ -49,7 +49,15 @@ export default function process_data(survey_data) {
         lastAverage.push(sectionSum / 6);
     }
 
-    console.log("LAST AVERAGE: ")
-    console.log(lastAverage);
+    log("LAST AVERAGE: ")
+    log(lastAverage);
     return lastAverage;
+}
+
+
+function log(text) {
+    if(import.meta.env.DEV) {
+        return
+    }
+    log(text)
 }

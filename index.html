@@ -32,7 +32,7 @@
             </label>
         </div>
 
-        <div id="table-container" class="hidden">
+        <div id="table-container" class="hidden max-w-5xl mx-auto">
             <div class="overflow-x-auto">
                 <table class="table border border-indigo-200 rounded-lg">
                     <!-- head -->
@@ -50,16 +50,15 @@
                 </table>
 
                 <!-- chart.js -->
-                <div width="400px" height="400px">
+                <div width="400px" height="400px" class="mt-12">
                     <div id="chart-labels">
-                        <h1> Chart - OCAI </h1>
-                        <canvas id="myChart"></canvas>
+                        <h1 class="font-bold text-xl"> Chart - OCAI </h1>
+                        <canvas id="ocai-chart"></canvas>
                         <span id="top-label">Flexibility and Discretion</span>
                         <span id="right-label">External Focus and Differentation</span>
                         <span id="bottom-label">Stability and Control</span>
                         <span id="left-label">Internal Focus and Integration</span>
                     </div>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 </div>
             </div>
         </div> 

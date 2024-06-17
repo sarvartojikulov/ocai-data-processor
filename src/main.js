@@ -1,13 +1,16 @@
 import process_data from "./processor/index.js";
 import { parse, FILTER_KEYS } from "./processor/parser.js";
 import validate from "./processor/validation.js";
+import { Chart, LineElement, PointElement, RadarController, RadialLinearScale } from "chart.js";
+
+Chart.register(RadialLinearScale, RadarController, PointElement, LineElement)
+
 
 let chartInstance = null;
 
 const input_element = document.querySelector("#dropzone-file");
 
 input_element.addEventListener("change", async (event) => {
-    console.log(event.target.files);
     const file = event.target.files[0];
     const data = await parseJsonFile(file);
 
@@ -22,13 +25,12 @@ input_element.addEventListener("change", async (event) => {
     const ist_result = process_data(ist);
     const soll_result = process_data(soll);
 
-    console.log(ist_result, soll_result);
     showData(ist_result, soll_result);
     updateChart(ist_result, soll_result);
 });
 
 function showWarning(text) {
-    console.log(text);
+    console.error(text);
 }
 
 async function parseJsonFile(file) {
@@ -69,7 +71,7 @@ function createRow(data, type) {
 }
 
 function updateChart(ist, soll) {
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('ocai-chart');
 
     if (chartInstance) {
         chartInstance.destroy();
@@ -103,7 +105,6 @@ function updateChart(ist, soll) {
         },
         options: {
             scales: {
-                
                 r: {
                     beginAtZero: true,
                     min: 0,

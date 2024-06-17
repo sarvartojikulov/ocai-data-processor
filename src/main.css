@@ -5,6 +5,7 @@
 * {
     box-sizing: border-box;
 }
+
 #chart-labels {
     position: relative;
     top: 0;
