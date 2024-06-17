@@ -2,6 +2,8 @@ import process_data from "./processor/index.js";
 import { parse, FILTER_KEYS } from "./processor/parser.js";
 import validate from "./processor/validation.js";
 
+let chartInstance = null;
+
 const input_element = document.querySelector("#dropzone-file");
 
 input_element.addEventListener("change", async (event) => {
@@ -22,6 +24,7 @@ input_element.addEventListener("change", async (event) => {
 
     console.log(ist_result, soll_result);
     showData(ist_result, soll_result);
+    updateChart(ist_result, soll_result);
 });
 
 function showWarning(text) {
@@ -63,4 +66,68 @@ function createRow(data, type) {
     });
 
     return row;
+}
+
+function updateChart(ist, soll) {
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    if (chartInstance) {
+        chartInstance.destroy();
+    }
+
+    chartInstance = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: [
+                'Clan (A)',
+                'Adhocracy (B)',
+                'Market (C)',
+                'Hierarchy (D)'
+            ],
+            datasets: [
+                {
+                    label: 'Ist-Zustand',
+                    data: ist,
+                    borderWidth: 2,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'transparent'
+                },
+                {
+                    label: 'Soll-Zustand',
+                    data: soll,
+                    borderWidth: 1,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'transparent'
+                }
+            ]
+        },
+        options: {
+            scales: {
+                
+                r: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 50,
+                    ticks: {
+                        stepSize: 10
+                    },
+                    pointLabels: {
+                        display: true, // label
+                        font: {
+                            size: 14
+                        }
+                    },
+                    grid: {
+                        circular: false, // quadratisch
+                        color: 'rgb(57, 46, 67)'
+                    },
+                    angleLines: {
+                        display: true, // achsen
+                        color: 'rgb(57, 46, 67)'
+                    },
+                    startAngle: -45
+                },
+            }
+        }
+    });
 }
