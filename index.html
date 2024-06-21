@@ -1,71 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="./src/main.css" />
-</head>
-
-<body class="min-h-screen h-auto py-12">
-    <div class="container mx-auto min-h-screen h-full flex flex-col justify-start gap-12">
-        <div class="flex items-center justify-center w-full">
-            <label for="dropzone-file"
-                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                    </svg>
-                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                        <span class="font-semibold">Click to upload</span>
-                        or drag and drop
-                    </p>
-                    <p class="text-xs text-red-500">
-                        ONLY JSON FROM LIMESURVEY EXPORT
-                    </p>
-                </div>
-                <input accept="application/JSON" id="dropzone-file" type="file" class="hidden" />
-            </label>
-        </div>
-
-        <div id="table-container" class="hidden max-w-5xl mx-auto">
-            <div class="overflow-x-auto">
-                <table class="table border border-indigo-200 rounded-lg">
-                    <!-- head -->
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Clan-Kultur</th>
-                            <th>Adhocracy-Kultur</th>
-                            <th>Markt-Kultur</th>
-                            <th>Hierarchie-Kultur</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-
-                <!-- chart.js -->
-                <div width="400px" height="400px" class="mt-12">
-                    <div id="chart-labels">
-                        <h1 class="font-bold text-xl"> Chart - OCAI </h1>
-                        <canvas id="ocai-chart"></canvas>
-                        <span id="top-label">Flexibility and Discretion</span>
-                        <span id="right-label">External Focus and Differentation</span>
-                        <span id="bottom-label">Stability and Control</span>
-                        <span id="left-label">Internal Focus and Integration</span>
-                    </div>
-                </div>
-            </div>
-        </div> 
-
-    </div>
-    <script type="module" src="/src/main.js"></script>
-
-</body>
-
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

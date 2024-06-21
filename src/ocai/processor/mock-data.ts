@@ -1,6 +1,6 @@
-import { SURVEY } from "./constants.js";
+import { SURVEY } from "./constants";
 
-function randomIntBetween(min, max) {
+function randomIntBetween(min : number, max: number) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 

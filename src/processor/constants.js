@@ -1,6 +1,0 @@
-
-export const SURVEY = {
-    SURVEY_SECTIONS_AMOUNT: 6,
-    SURVEY_SECTION_QUESTIONS_AMOUNT: 4
-} 
-

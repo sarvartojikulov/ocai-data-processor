@@ -1,18 +1,11 @@
-import { SURVEY } from "./constants.js";
-import validate from "./validation.js";
+import { SURVEY } from "./constants";
+import { OcaiUserAnswers } from "./ocai.types";
 
-// const survey_data = fakeUserSurveyForAmount(3);
-// const survey_data = test_data.map(item => item.teilnehmer_antworten);
-
-export default function process_data(survey_data) {
-    if (!validate(survey_data)) {
-        log("data is invalid");
-        return;
-    }
+export default function process_data(survey_data: OcaiUserAnswers[]) {
     const averages = [];
 
     for (let i = 0; i < SURVEY.SURVEY_SECTIONS_AMOUNT; i++) {
-        const sectionSums = [];
+        const sectionSums: number[] = [];
         log("----");
         for (let j = 0; j < survey_data.length; j++) {
             const user_answers = survey_data[j];
@@ -49,15 +42,14 @@ export default function process_data(survey_data) {
         lastAverage.push(sectionSum / 6);
     }
 
-    log("LAST AVERAGE: ")
+    log("LAST AVERAGE: ");
     log(lastAverage);
     return lastAverage;
 }
 
-
-function log(text) {
-    if(import.meta.env.DEV) {
-        return
+function log(...text: any) {
+    if (import.meta.env.DEV) {
+        return;
     }
-    log(text)
+    console.log(text);
 }

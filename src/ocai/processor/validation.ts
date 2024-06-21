@@ -1,6 +1,7 @@
-import { SURVEY } from "./constants.js";
+import { SURVEY } from "./constants";
+import { OcaiUserAnswers } from "./ocai.types";
 
-export default function validate(data) {
+export default function validate(data : OcaiUserAnswers[]) {
     let isValid = true;
     for (let i = 0; i < data.length; i++) {
         const user_answers = data[i];
