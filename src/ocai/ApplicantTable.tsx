@@ -1,11 +1,10 @@
 import { FC } from "react";
 
-type OcaiTableProps = {
-    ist: number[];
-    soll: number[];
+type ApplicantTableProps = {
+    wunsch: number[];
 };
 
-const OcaiTable: FC<OcaiTableProps> = ({ ist, soll }) => {
+const ApplicantTable: FC<ApplicantTableProps> = ({ wunsch }) => {
     return (
         <div className="overflow-x-auto">
             <table className="table border border-indigo-200 rounded-lg">
@@ -20,14 +19,8 @@ const OcaiTable: FC<OcaiTableProps> = ({ ist, soll }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th>IST-Zustand</th>
-                        {ist.map((item, idx) => (
-                            <td key={idx}>{item.toFixed(2)}</td>
-                        ))}
-                    </tr>
-                    <tr>
-                        <th>SOLL-Zustand</th>
-                        {soll.map((item, idx) => (
+                        <th>Wunschk-Kultur</th>
+                        {wunsch.map((item, idx) => (
                             <td key={idx}>{item.toFixed(2)}</td>
                         ))}
                     </tr>
@@ -37,4 +30,4 @@ const OcaiTable: FC<OcaiTableProps> = ({ ist, soll }) => {
     );
 };
 
-export default OcaiTable;
+export default ApplicantTable;

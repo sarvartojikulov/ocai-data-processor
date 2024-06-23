@@ -7,3 +7,7 @@ export const FILTER_KEYS = {
     IST: "[Ist-Zustand]",
     SOLL: "[Soll-Zustand]",
 } as const;
+
+export const FILTER_KEYS_APPLICANT = {
+    WUNSCH: "[WUNSCH-Kultur]"
+} as const;
