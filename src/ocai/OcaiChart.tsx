@@ -23,7 +23,7 @@ const OcaiChart: FC<OcaiChartProps> = ({ applicantResults, ocaiResults }) => {
     const ctx = document.getElementById("ocai-chart") as HTMLCanvasElement;
 
     if (chartInstance) {
-      chartInstance.destroy(); // Bestehende Chart-Instanz zerstören
+      chartInstance.destroy();
     }
 
     chartInstance = new Chart(ctx, {

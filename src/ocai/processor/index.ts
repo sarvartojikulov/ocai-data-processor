@@ -50,7 +50,6 @@ export default function process_data(survey_data: OcaiUserAnswers[]) {
     return lastAverage;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function log(...text: any) {
     if (import.meta.env.DEV) {
         return;

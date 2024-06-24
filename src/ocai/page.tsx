@@ -8,7 +8,6 @@ import validate from "./processor/validation";
 import { FILTER_KEYS, FILTER_KEYS_APPLICANT } from "./processor/constants";
 import { parse } from "./processor/parser";
 import OcaiTable from "./OcaiTable";
-//import OcaiChart from "./OcaiChart";
 import ApplicantTable from "./ApplicantTable";
 import OcaiChart from "./OcaiChart";
 
@@ -72,8 +71,6 @@ const OcaiPage = () => {
     );
     const sumDiff = diff.reduce((acc, value) => acc + value, 0);
     const finalScore = 100 - sumDiff;
-  
-    // Runde den finalen Score auf zwei Dezimalstellen
     const roundedFinalScore = parseFloat(finalScore.toFixed(2));
   
     setIstScore(roundedFinalScore);
