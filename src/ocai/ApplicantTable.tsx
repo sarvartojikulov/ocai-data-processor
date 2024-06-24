@@ -19,7 +19,7 @@ const ApplicantTable: FC<ApplicantTableProps> = ({ wunsch }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Wunschk-Kultur</th>
+                        <th>Wunsch-Kultur</th>
                         {wunsch.map((item, idx) => (
                             <td key={idx}>{item.toFixed(2)}</td>
                         ))}
