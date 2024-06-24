@@ -37,7 +37,7 @@ const OcaiPage = () => {
 
     return (
         <React.Fragment>
-            <FileInput onInput={onInput} />
+            <FileInput label="ONLY JSON FROM LIMESURVEY EXPORT" accept="application/JSON" onInput={onInput} />
 
             {results?.ist && results.soll && (
                 <div className="max-w-5xl mx-auto">

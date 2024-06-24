@@ -2,9 +2,11 @@ import { ChangeEventHandler, FC } from "react";
 
 type FileInputProps = {
   onInput : ChangeEventHandler<HTMLInputElement>
+  label: string,
+  accept : string
 }
 
-const FileInput : FC<FileInputProps> = ({onInput}) => {
+const FileInput : FC<FileInputProps> = ({onInput, accept, label}) => {
     return (
         <div className="flex items-center justify-center w-full">
             <label
@@ -31,12 +33,12 @@ const FileInput : FC<FileInputProps> = ({onInput}) => {
                         <span className="font-semibold">Click to upload</span>
                         or drag and drop
                     </p>
-                    <p className="text-xs text-red-500">
-                        ONLY JSON FROM LIMESURVEY EXPORT
+                    <p className="text-xs text-red-500 font-bold">
+                       {label}
                     </p>
                 </div>
                 <input
-                    accept="application/JSON"
+                    accept={accept}
                     id="dropzone-file"
                     type="file"
                     className="hidden"
