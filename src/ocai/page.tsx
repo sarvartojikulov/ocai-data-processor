@@ -3,7 +3,6 @@ import FileInput from "../components/FileInput";
 import FileInputApplicant from "../components/FileInputApplicant";
 import { parseJsonFile } from "../utils";
 import process_data from "./processor";
-import process_data_applicant from "./processor";
 import validate from "./processor/validation";
 import { FILTER_KEYS, FILTER_KEYS_APPLICANT } from "./processor/constants";
 import { parse } from "./processor/parser";
@@ -56,7 +55,7 @@ const OcaiPage = () => {
       file
     );
     const wunsch = parse(FILTER_KEYS_APPLICANT.WUNSCH, data.responses);
-    const wunsch_result = process_data_applicant(wunsch);
+    const wunsch_result = process_data(wunsch);
 
     setApplicantResults({ wunsch: wunsch_result });
   };
@@ -133,10 +132,10 @@ const OcaiPage = () => {
               <span className="text-xl font-extrabold">{sollScore} %</span>
             </p>
           )}
-          <OcaiChart
+          {currentOcaiResults && <OcaiChart
             applicantResults={applicantResults.wunsch}
             ocaiResults={currentOcaiResults}
-          />
+          />}
         </div>
       )}
     </>
