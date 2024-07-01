@@ -96,7 +96,7 @@ const OcaiPage = () => {
 
   return (
     <>
-      <FileInput accept="applicaion/json" label="LIMESURVEY JSON" onInput={handleOcaiInput} />
+      <FileInput accept="application/json" label="LIMESURVEY JSON" onInput={handleOcaiInput} />
       {ocaiResults && ocaiResults.ist && ocaiResults.soll && (
         <div className="max-w-5xl mx-auto">
           <OcaiTable ist={ocaiResults.ist} soll={ocaiResults.soll} />
