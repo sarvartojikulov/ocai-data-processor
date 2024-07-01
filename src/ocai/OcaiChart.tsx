@@ -12,7 +12,7 @@ Chart.register(RadialLinearScale, RadarController, PointElement, LineElement);
 
 type OcaiChartProps = {
   applicantResults: number[];
-  ocaiResults: number[];
+  ocaiResults: number[] | null;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

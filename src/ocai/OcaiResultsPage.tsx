@@ -1,8 +1,10 @@
-import React from 'react';
 import OcaiTable from './OcaiTable';
 import ApplicantTable from './ApplicantTable';
+import { useLocation } from 'react-router-dom';
 
-const ResultsPage = ({ location }) => {
+
+const ResultsPage = () => {
+  const location = useLocation();
   const { ocaiResults, applicantResults } = location.state || { ocaiResults: null, applicantResults: null };
 
   return (
